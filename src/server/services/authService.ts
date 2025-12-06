@@ -1,7 +1,7 @@
 import { User, UserSession, Organization } from '../../types';
 import { StorageService } from './storageService';
 import { v4 as uuidv4 } from 'uuid';
-import * as crypto from 'crypto';
+import { randomBytes } from 'crypto';
 
 export class AuthService {
   constructor(private storage: StorageService) {}
@@ -37,7 +37,7 @@ export class AuthService {
     user.lastLogin = new Date();
     await this.storage.saveUser(user);
 
-    const token = crypto.randomBytes(32).toString('hex');
+    const token = randomBytes(32).toString('hex');
     const expiresAt = new Date();
     expiresAt.setHours(expiresAt.getHours() + 24);
 

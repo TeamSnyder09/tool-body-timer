@@ -17,6 +17,6 @@
       "*": ["types/*"]
     }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts", "dist"]
+  "include": ["src/server/**/*", "src/types/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts", "dist", "src/client/**/*"]
 }
